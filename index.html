@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Оформление заказа</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Оформление заказа</h1>
+        <div id="orderForm">
+            <div class="form-group">
+                <label for="name">Имя:</label>
+                <input type="text" id="name" placeholder="Введите ваше имя">
+                <div class="error" id="nameError"></div>
+            </div>
+            <div class="form-group">
+                <label for="phone">Телефон:</label>
+                <input type="text" id="phone" placeholder="Введите номер телефона">
+                <div class="error" id="phoneError"></div>
+            </div>
+            <div class="form-group">
+                <label for="address">Адрес:</label>
+                <input type="text" id="address" placeholder="Введите ваш адрес">
+                <div class="error" id="addressError"></div>
+            </div>
+            <div class="form-group">
+                <label for="delivery">Способ доставки:</label>
+                <select id="delivery">
+                    <option value="">Выберите способ</option>
+                    <option value="pickup">Самовывоз</option>
+                    <option value="courier">Курьер</option>
+                </select>
+                <div class="error" id="deliveryError"></div>
+            </div>
+            <button onclick="validateOrder()">Оформить заказ</button>
+        </div>
+
+        <div id="paymentSection" style="display: none;">
+            <h3>Введите данные карты 💳</h3>
+            <div class="form-group">
+                <label for="cardNumber">Номер карты:</label>
+                <input type="text" id="cardNumber" placeholder="1234 5678 9012 3456" maxlength="19">
+            </div>
+            <div class="form-group">
+                <label for="expiry">Срок действия (MM/YY):</label>
+                <input type="text" id="expiry" placeholder="MM/YY">
+            </div>
+            <div class="form-group">
+                <label for="cvc">CVC:</label>
+                <input type="text" id="cvc" placeholder="CVC" maxlength="3">
+            </div>
+            <button onclick="startLoading()">Оплатить</button>
+        </div>
+
+        <div id="loaderSection" style="display: none;">
+            <div class="progress-bar">
+                <div class="progress-bar-fill" id="progressFill">0%</div>
+            </div>
+        </div>
+
+        <div id="successMessage" style="display: none;">
+            <div class="icon">
+                <img src="https://www.icegif.com/wp-content/uploads/2023/09/icegif-355.gif" alt="Success" width="150" height="150">
+            </div>
+            <h3>Спасибо за покупку!</h3>
+            <p>Ваш заказ успешно оформлен.</p>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
